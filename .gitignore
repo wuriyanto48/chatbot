@@ -4,3 +4,6 @@ env/
 .vscode/
 
 dataset_1.json
+
+*.h5
+tf.*
