@@ -1,0 +1,203 @@
+{
+    "collections": [
+      {
+        "tag": "salam",
+        "patterns": [
+          "Halo",
+          "hai",
+          "hi",
+          "hoy",
+          "helo",
+          "hello",
+          "hallo",
+          "woy",
+          "uy",
+          "oy",
+          "Apa kabar",
+          "Apakah ada orang?",
+          "Hello",
+          "Selamat siang",
+          "Selamat pagi",
+          "Selamat sore"
+        ],
+        "responses": [
+          "Mari kita ngobrol",
+          "Apakah kamu butuh bantuan ?",
+          "Aku siap membantu anda",
+          "Senang bertemu dengan kamu lagi",
+          "Hai ada yang bisa saya bantu?"
+        ],
+        "context_set": ""
+      },
+      {
+        "tag": "selamattinggal",
+        "patterns": [
+          "Dah",
+          "Sampai jumpa lagi",
+          "Dadah",
+          "bye",
+          "Selamat tinggal"
+        ],
+        "responses": [
+          "Sampai jumpa lagi, terima kasih sudah berkunjung",
+          "Semoga harimu menyenangkan",
+          "Dadah, silahkan kembali lagi secepatnya"
+        ]
+      },
+      {
+        "tag": "terimakasih",
+        "patterns": [
+          "Terima kasih",
+          "Terima kasih banyak",
+          "Thanks",
+          "makasih",
+          "thank you",
+          "tq",
+          "Sangat membantu sekali"
+        ],
+        "responses": [
+          "Sama-sama",
+          "Kapan saja",
+          "Dengan senang hati"
+        ]
+      },
+      {
+        "tag": "jam",
+        "patterns": [
+          "Kapan anda buka?",
+          "Jam berapa?",
+          "Buka sampai jam berapa?"
+        ],
+        "responses": [
+          "Kita buka setiap hari sampai jam 7 malam",
+          "Jam kami dari jam 9 pagi sampai jam 8 malam"
+        ]
+      },
+      {
+        "tag": "bayar",
+        "patterns": [
+          "Saya akan membayar",
+          "Saya mau bayar",
+          "Apakah anda menerima kartu kredit?",
+          "Apakah anda menerima Mastercard?",
+          "Apa cuma uang tunai?"
+        ],
+        "responses": [
+          "Kami menerima semua kartu kredit",
+          "Kami menerima kartu kredit dan uang tunai"
+        ]
+      },
+      {
+        "tag": "bukahariini",
+        "patterns": [
+          "Apakah hari ini buka?",
+          "Kapan hari ini mulai buka?",
+          "Jam berapa buka?"
+        ],
+        "responses": [
+          "Kami buka setiap hari",
+          "Kita buka setiap hari sampai jam 7 malam",
+          "Kami buka sampai akhir pekan"
+        ]
+      },
+      {
+        "tag": "mohonmaaf",
+        "patterns": [
+          "Sorry",
+          "sory",
+          "sori",
+          "Maaf",
+          "Mohon maaf",
+          "Mohon maafkan saya"
+        ],
+        "responses": [
+          "Santai saja,,",
+          "Ngga apa-apa kok",
+          "Tenang saja"
+        ]
+      },
+      {
+        "tag": "cuek",
+        "patterns": [
+          "bodo amat",
+          "tau ah",
+          "bodo",
+          "cuek aja",
+          "cuek",
+          "cek ",
+          "jelek",
+          "aaaaaaaaa",
+          "iseng",
+          "operan gabut"
+        ],
+        "responses": [
+          "Jangan Gitu, Robot juga punya perasaan,",
+          "Silakan dicoba kembali",
+          "anda siapa ?",
+          "saya juga bodo amat",
+          "jangan ngecek doang, coba yang bener",
+          "anda juga jelek.",
+          "cek aja sendiri"
+        ]
+      },
+      {
+        "tag": "penolakan",
+        "patterns": [
+          "tidak",
+          "enggak",
+          "gak",
+          "ga",
+          "nda",
+          "g"
+        ],
+        "responses": [
+          "terima kasih"
+        ]
+      },
+      {
+        "tag": "konfirmasi",
+        "patterns": [
+          "ya",
+          "oke",
+          "ok",
+          "y",
+          "iya"
+        ],
+        "responses": [
+          "ada yang bisa kami bantu lagi?"
+        ]
+      },
+      {
+        "tag": "tertawa",
+        "patterns": [
+          "ha",  
+          "haha",
+          "hahaha",
+          "hehe",
+          "hehehe",
+          "wkwkwk",
+          "wkwk",
+          "wk",
+          "huahaha",
+          "hihi",
+          "hihihi"
+        ],
+        "responses": [
+          "hehe kenapa ?",
+          "Anda mungkin sedang bahagia",
+          "Apakah anda baru gajian ?",
+          "Banyak tertawa itu bagus",
+          "Tertawalah bersama orang-orang terdekat anda"
+        ]
+      },
+      {
+        "tag": "tidakdiketahui",
+        "patterns": [
+          ""
+        ],
+        "responses": [
+          "Saya belum mengerti apa yang anda maksud."
+        ]
+      }
+    ]
+  }
