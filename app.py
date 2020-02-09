@@ -1,10 +1,13 @@
+#!/usr/bin/env python
+
 from flask import Flask, request, jsonify
 
 import json
 import random as rd
 import pandas as pd
 import numpy as np
-from model import load_model, do_answer, get_bag_of_words, DATASET_FILE
+from core.bot import do_answer
+
 
 app = Flask(__name__)
 
