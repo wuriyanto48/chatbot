@@ -1,5 +1,10 @@
 ### Chatbot Core
 
+Machine Learning Deep Neural Network Chatbot 
+
+[<img src="https://en.wikipedia.org/wiki/Artificial_neural_network#/media/File:Colored_neural_network.svg" width="300">](https://github.com/wuriyanto48/chatbot)
+<br/><br/>
+
 Requirements:
 
 - Python 3.7 or Higher
