@@ -26,3 +26,21 @@ Install requirements
 ```shell
 $ pip install -r requirements.txt
 ```
+
+#### Run Trainer
+
+```shell
+$ ./train_bot.py
+```
+
+#### Run Bot as CLI App
+
+```shell
+$ ./cli_bot.py
+```
+
+#### Run Bot as Microservice
+
+```shell
+$ ./app.py
+```
