@@ -41,8 +41,16 @@ $ ./cli_bot.py
 
 #### Run Bot as Microservice
 
+Run `Bot` first
+
 ```shell
 $ ./app.py
+```
+
+Then run  `chat-server`
+```shell
+$ cd chat-server
+$ npm start
 ```
 
 #
