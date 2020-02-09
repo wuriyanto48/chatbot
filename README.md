@@ -9,6 +9,7 @@ Requirements:
 
 - Python 3.7 or Higher
 - Virtualenv
+- Nodejs
 
 #### Getting started
 
