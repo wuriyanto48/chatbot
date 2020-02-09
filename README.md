@@ -44,3 +44,6 @@ $ ./cli_bot.py
 ```shell
 $ ./app.py
 ```
+
+#
+Wuriyanto 2020
