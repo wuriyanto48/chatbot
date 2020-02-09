@@ -7,14 +7,22 @@ create tensorflow model
 def create_model(num_words, output_length):
 
     model = tf.keras.Sequential()
-    model.add(tf.keras.layers.Dense(128, input_shape=(num_words,)))
+
+    # input layer
+    model.add(tf.keras.layers.Dense(256, input_shape=(num_words,)))
     model.add(tf.keras.layers.Activation('relu'))
     model.add(tf.keras.layers.Dropout(0.5))
+
+    # hidden layer
+    # model.add(tf.keras.layers.Dense(32))
+    # model.add(tf.keras.layers.Activation('relu'))
+    # model.add(tf.keras.layers.Dropout(0.5))
 
     model.add(tf.keras.layers.Dense(64))
     model.add(tf.keras.layers.Activation('relu'))
     model.add(tf.keras.layers.Dropout(0.5))
 
+    # output layer
     model.add(tf.keras.layers.Dense(output_length))
     model.add(tf.keras.layers.Activation('softmax'))
 
