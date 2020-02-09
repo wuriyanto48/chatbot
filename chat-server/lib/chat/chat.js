@@ -37,16 +37,30 @@ module.exports = (listener, userRepo) => {
             const msg = JSON.parse(message);
             console.log(msg.type);
 
+            // bot basic auth
+            const username = process.env.BOT_BASIC_USERNAME;
+            const password = process.env.BOT_BASIC_PASSWORD;
+            const auth = "Basic " + Buffer.from(username + ":" + password).toString("base64");
+
             switch(msg.type) {
                 case 'join':
                     const data = await userRepo.findByEmail(msg.data);
                     request.post('http://localhost:9000/bot', {
                         json: {
                             sentence: 'halo'
+                        },
+                        headers:{
+                            "Authorization" : auth
                         }
                     }, (err, resp, body) => {
                         if (err) {
-                            console.log(err);
+                            console.log('err.......', err);
+                            return
+                        }
+
+                        if (resp.statusCode != 200) {
+                            console.log('error ', resp.statusCode);
+                            return
                         }
 
                         socket.send(JSON.stringify({
@@ -73,10 +87,19 @@ module.exports = (listener, userRepo) => {
                     request.post('http://localhost:9000/bot', {
                         json: {
                             sentence: msg.data.msg
+                        },
+                        headers:{
+                            "Authorization" : auth
                         }
                     }, (err, resp, body) => {
                         if (err) {
-                            console.log(err);
+                            console.log('err.......', err);
+                            return
+                        }
+
+                        if (resp.statusCode != 200) {
+                            console.log('error', resp.statusCode);
+                            return
                         }
 
                         socket.send(JSON.stringify({
