@@ -37,6 +37,9 @@ module.exports = (listener, userRepo) => {
             const msg = JSON.parse(message);
             console.log(msg.type);
 
+            // bot endpoint 
+            const botBaseURL = process.env.BOT_BASE_URL;
+            const botEndpoint = `${botBaseURL}/bot`;
             // bot basic auth
             const username = process.env.BOT_BASIC_USERNAME;
             const password = process.env.BOT_BASIC_PASSWORD;
@@ -45,7 +48,7 @@ module.exports = (listener, userRepo) => {
             switch(msg.type) {
                 case 'join':
                     const data = await userRepo.findByEmail(msg.data);
-                    request.post('http://localhost:9000/bot', {
+                    request.post(botEndpoint, {
                         json: {
                             sentence: 'halo'
                         },
@@ -84,7 +87,7 @@ module.exports = (listener, userRepo) => {
                         }
                     }));
                     
-                    request.post('http://localhost:9000/bot', {
+                    request.post(botEndpoint, {
                         json: {
                             sentence: msg.data.msg
                         },
