@@ -4,7 +4,8 @@ import json
 import random as rd
 import pandas as pd
 import numpy as np
-from model import load_model, do_answer, get_bag_of_words, DATASET_FILE
+from core.model import load_model
+from core.bot import do_answer
 
 '''
 answer will answer to every given question 
