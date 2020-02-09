@@ -59,5 +59,12 @@ $ cd chat-server
 $ npm start
 ```
 
+#### Docker
+
+Build image
+```shell
+$ make build
+```
+
 #
 Wuriyanto 2020
