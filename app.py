@@ -27,7 +27,7 @@ def page_empty_payload(error):
 	return response, 400
 
 @app.errorhandler(401)
-def page_empty_payload(error):
+def page_unauthorized(error):
 	response = jsonify({'message': 'invalid authorization'})
 	return response, 401
 
