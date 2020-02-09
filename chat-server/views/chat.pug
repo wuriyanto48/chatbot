@@ -1,0 +1,50 @@
+extends layout
+
+block content
+    script.
+        $(document).ready(function(){
+
+            socket.onmessage = function(event){
+                var msg = JSON.parse(event.data);
+                console.log(msg);
+                switch(msg.type) {
+                    case 'user_joined':
+                        $('#messages').prepend($('<li class="list-group-item list-group-item-warning">').text(msg.data.username +' bergabung..'));
+                        break;
+                    case 'chat_message':
+                        $('#messages').prepend($('<li class="list-group-item">').text(msg.data.from +' : '+msg.data.msg));
+                        break;
+                    default:
+                        console.log('unknown type');
+                }
+            }
+
+            $('form').submit(function(){
+                socket.send(JSON.stringify({
+                    type: 'send_message', 
+                    data: {
+                        from: $('#user').text(),
+                        msg: $('#message').val(), 
+                        date: new Date()
+                    }
+                }));
+                $('#message').val('');
+                return false;
+            });
+        });
+    div.panel.panel-primary
+        if user
+            div.panel.panel-heading
+                h4
+                    span#user.label.label-danger #{user}
+            div.panel.panel-body
+                form.form-chat.form-horizontal(action="")
+                    div.form-group
+                        input.form-control(type="text" id="message")
+                    div.form-group
+                        button.button-send.btn.btn-primary(type="submit") Send
+            ul#messages.list-group
+        else
+            div.panel.panel-heading
+                h4
+                    span#user.label.label-danger Anda belum login

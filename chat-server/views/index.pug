@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+  body
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      a.navbar-brand Chat App
+      div.collapse.navbar-collapse
+        ul.navbar-nav
+          li.nav-item
+            a.nav-link(href='/') Home
+          li.nav-item
+            a.nav-link(href='/about') About
+    div.container
+
+        block content
+            div.panel.panel-primary
+                div.panel.panel-body
+                    form.form-chat.form-horizontal(method="post" action="/login")
+                        div.form-group
+                            input.form-control(type="text" name="email" id="email" placeholder="Email kamu")
+                        div.form-group
+                            input.form-control(type="password" name="password" placeholder="Password kamu")
+                        div.form-group
+                            button.button-send.btn.btn-primary(type="submit") Login

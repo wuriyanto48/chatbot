@@ -1,0 +1,51 @@
+[{
+    "id" : 1,
+    "full_name" : "Wuriyanto",
+    "email" : "wuriyanto48@yahoo.co.id",
+    "password" : "12345"
+  }, {
+    "id" : 2,
+    "full_name" : "Alex",
+    "email" : "alex@yahoo.com",
+    "password" : "12345"
+  }, {
+    "id" : 3,
+    "full_name" : "Boby",
+    "email" : "boby@slate.com",
+    "password" : "12345"
+  }, {
+    "id" : 4,
+    "full_name" : "Annie George",
+    "email" : "ageorge3@springer.com",
+    "password" : "YafXTpZ"
+  }, {
+    "id" : 5,
+    "full_name" : "Teresa Russell",
+    "email" : "trussell4@umich.edu",
+    "password" : "QhsfMA8"
+  }, {
+    "id" : 6,
+    "full_name" : "Adam Palmer",
+    "email" : "apalmer5@dropbox.com",
+    "password" : "MJwF3T4g"
+  }, {
+    "id" : 7,
+    "full_name" : "Beverly Dixon",
+    "email" : "bdixon6@japanpost.jp",
+    "password" : "MQmJjmE"
+  }, {
+    "id" : 8,
+    "full_name" : "Juan Hill",
+    "email" : "jhill7@tamu.edu",
+    "password" : "fPnoKK9d"
+  }, {
+    "id" : 9,
+    "full_name" : "Frances Wells",
+    "email" : "fwells8@webeden.co.uk",
+    "password" : "KBhs92h"
+  }, {
+    "id" : 10,
+    "full_name" : "Craig Scott",
+    "email" : "cscott9@instagram.com",
+    "password" : "cCTEEVQ"
+  }]
