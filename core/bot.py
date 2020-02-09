@@ -61,15 +61,15 @@ def test_classify(sentence):
     print(training_data)
     
     # filter predicted data by threshold
-    # predicted = [[i, p] for i, p in enumerate(predicted) if p > THRESHOLD]
+    predicted = [[i, p] for i, p in enumerate(predicted) if p > THRESHOLD]
     
-    # predicted.sort(key=lambda x: x[1], reverse=True)
+    predicted.sort(key=lambda x: x[1], reverse=True)
 
-    # prob_list = []
-    # for r in predicted:
-    #     prob_list.append((labels[r[0]], str(r[1])))
+    prob_list = []
+    for r in predicted:
+        prob_list.append((labels[r[0]], str(r[1])))
     
-    # print(prob_list)
+    print(prob_list)
 
 '''
 do_answer
