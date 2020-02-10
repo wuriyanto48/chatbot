@@ -55,31 +55,31 @@ class Dataset(object):
       self.client.close()
   
 
-host = 'localhost'
-port = 27017
-username = 'bot'
-password = 'bot'
-database = 'bot_dataset'
+# host = 'localhost'
+# port = 27017
+# username = 'bot'
+# password = 'bot'
+# database = 'bot_dataset'
 
-data = {
-        "tag": "selamattinggal",
-        "patterns": [
-          "Dah",
-          "Sampai jumpa lagi",
-          "Dadah",
-          "bye",
-          "Selamat tinggal"
-        ],
-        "responses": [
-          "Sampai jumpa lagi, terima kasih sudah berkunjung",
-          "Semoga harimu menyenangkan",
-          "Dadah, silahkan kembali lagi secepatnya"
-        ]
-      }
+# data = {
+#         "tag": "selamattinggal",
+#         "patterns": [
+#           "Dah",
+#           "Sampai jumpa lagi",
+#           "Dadah",
+#           "bye",
+#           "Selamat tinggal"
+#         ],
+#         "responses": [
+#           "Sampai jumpa lagi, terima kasih sudah berkunjung",
+#           "Semoga harimu menyenangkan",
+#           "Dadah, silahkan kembali lagi secepatnya"
+#         ]
+#       }
 
-datastore = Dataset(host=host, port=port, username=username, password=password, database=database)
+# datastore = Dataset(host=host, port=port, username=username, password=password, database=database)
 
-data = datastore.find_all()
-print(data[:4])
+# data = datastore.find_all()
+# print(data[:4])
 
-datastore.close()
+# datastore.close()
