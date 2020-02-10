@@ -9,7 +9,7 @@ Artificial Neural Network
 
 Architecture of this Bot
 
-[<img src="./assets/architecture.png" width="700">](https://github.com/wuriyanto48/chatbot)
+[<img src="./assets/architecture.png" width="900">](https://github.com/wuriyanto48/chatbot)
 <br/><br/>
 
 Requirements:
