@@ -50,19 +50,19 @@ $ ./train_bot.py
 
 Thera are 3 interface for communicate with `Bot`
 
-CLI App
+<b>CLI App</b>
 
 ```shell
 $ ./cli_bot.py
 ```
 
-GUI App
+<b>GUI App</b>
 
 ```shell
 $ ./app_gui.py
 ```
 
-Restful API
+<b>Restful API</b>
 
 Run `Bot` first
 
