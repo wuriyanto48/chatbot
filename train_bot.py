@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import json
-from core.trainer import train
+from core.trainer import Trainer
 from config import DATASET_FILE
 
 if __name__ == '__main__':
@@ -11,4 +11,5 @@ if __name__ == '__main__':
     with open(DATASET_FILE) as file:
         dataset = json.load(file)
 
-    train(dataset=dataset['collections'])
+    trainer = Trainer(dataset['collections'])
+    trainer.train()

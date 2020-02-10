@@ -12,82 +12,81 @@ EPOCHS = 1000
 
 THRESHOLD_SIMILARITY = 0.63
 
-def preprocess_dataset(dataset = []):
-
-    words = []
-    labels = []
-    docs_x = []
-    docs_y = []
-
-    for intent in dataset:
-        for pattern in intent['patterns']:
-
-            # case folding
-            pattern = re.sub(r"\d+", "", pattern)
-            pattern = pattern.translate(str.maketrans("","", string.punctuation)).strip()
-
-            # tokenize word
-            word_token = nltk.word_tokenize(pattern)
-            # insert word token to database vacabulary
-            words.extend(word_token)
-
-            docs_x.append(word_token)
-            docs_y.append(intent['tag'])
-
-        if intent['tag'] not in labels:
-            # create unique label/ class
-            labels.append(intent['tag'])
-
-    # words stemming of list pattern
-    words = stem_text(words)
-
-    # base_word_bahasa = load_base_words_bahasa()
-    # words.extend(base_word_bahasa)
-
-    # create list of unique stemmed words
-    words = sorted(list(set(words)))
-    labels = sorted(labels)
-
-    return (words, labels, docs_x, docs_y)
-
 '''
-train model
+Trainer class will train tensorflow model
 '''
-def train(dataset = []):
+class Trainer(object):
+    def __init__(self, dataset = []):
+        self.dataset = dataset
+
+        self.words = []
+        self.labels = []
+        self.docs_x = []
+        self.docs_y = []
     
-    (words, labels, docs_x, docs_y) = preprocess_dataset(dataset=dataset)
+    def __preprocess(self):
+        for intent in self.dataset:
+            for pattern in intent['patterns']:
 
-    # bag of words
-    training_data = []
-    output = []
+                # case folding
+                pattern = re.sub(r"\d+", "", pattern)
+                pattern = pattern.translate(str.maketrans("","", string.punctuation)).strip()
 
-    out_empty = [0 for _ in range(len(labels))]
-    for x, doc in enumerate(docs_x):
-        bag = [0 for _ in range(len(words))]
+                # tokenize word
+                word_token = nltk.word_tokenize(pattern)
+                # insert word token to database vacabulary
+                self.words.extend(word_token)
 
-        word_stemmed = stem_text(doc)
+                self.docs_x.append(word_token)
+                self.docs_y.append(intent['tag'])
 
-        for ws in word_stemmed:
-            for i, w in enumerate(words):
-                r = textdistance.hamming.normalized_similarity(ws, w)
-                if r >= THRESHOLD_SIMILARITY:
-                    bag[i] = 1
+            if intent['tag'] not in self.labels:
+                # create unique label/ class
+                self.labels.append(intent['tag'])
+
+        # words stemming of list pattern
+        self.words = stem_text(self.words)
+
+        # base_word_bahasa = load_base_words_bahasa()
+        # words.extend(base_word_bahasa)
+
+        # create list of unique stemmed words
+        self.words = sorted(list(set(self.words)))
+        self.labels = sorted(self.labels)
+
+    def train(self):
+
+        self.__preprocess()
+
+        # bag of words
+        training_data = []
+        output = []
+
+        out_empty = [0 for _ in range(len(self.labels))]
+        for x, doc in enumerate(self.docs_x):
+            bag = [0 for _ in range(len(self.words))]
+
+            word_stemmed = stem_text(doc)
+
+            for ws in word_stemmed:
+                for i, w in enumerate(self.words):
+                    r = textdistance.hamming.normalized_similarity(ws, w)
+                    if r >= THRESHOLD_SIMILARITY:
+                        bag[i] = 1
+            
+            output_row = out_empty[:]
+            output_row[self.labels.index(self.docs_y[x])] = 1
+
+            training_data.append(bag)
+            output.append(output_row)
+
+        # convert to numpy array
+        training_data = np.array(training_data)
+        output = np.array(output)
+
+        model = create_model(len(self.words), len(output[0]))
+        # model = create_model_from_dnn(len(self.words), len(output[0]), TF_MODEL_DIR, VOCAB_PICKLE_DIR)
+        model.fit(training_data, output, batch_size=BATCH_SIZE , epochs=EPOCHS)
         
-        output_row = out_empty[:]
-        output_row[labels.index(docs_y[x])] = 1
-
-        training_data.append(bag)
-        output.append(output_row)
-
-    # convert to numpy array
-    training_data = np.array(training_data)
-    output = np.array(output)
-
-    model = create_model(len(words), len(output[0]))
-    # model = create_model_from_dnn(len(words), len(output[0]), TF_MODEL_DIR, VOCAB_PICKLE_DIR)
-    model.fit(training_data, output, batch_size=BATCH_SIZE , epochs=EPOCHS)
-    
-    save_model(model, (words, labels, training_data, output))
-    # model.save((words, labels, training_data, output))
-
-    print(len(words))
+        save_model(model, (self.words, self.labels, training_data, output))
+        # model.save((self.words, self.labels, training_data, output))
