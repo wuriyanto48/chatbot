@@ -1,9 +1,5 @@
 #!/usr/bin/env python
 
-import json
-import random as rd
-import pandas as pd
-import numpy as np
 from core.model import load_model
 from core.bot import do_answer
 
