@@ -2,7 +2,6 @@ import tensorflow as tf
 import numpy as np
 import os
 import re
-import json
 import nltk
 import string
 import textdistance
@@ -20,7 +19,7 @@ MODEL_DIR = os.path.join(BASE_DIR, '../model/h5/model.h5')
 TF_MODEL_DIR = os.path.join(BASE_DIR, '../model/tf/tf')
 
 DATA_DIR = os.path.join(BASE_DIR, '../data')
-DATASET_FILE = os.path.join(DATA_DIR, 'dataset.json')
+
 DATASET_BASE_WORD_BAHASA = os.path.join(DATA_DIR, 'base_word_bahasa.txt')
 VOCAB_PICKLE_DIR = os.path.join(DATA_DIR, 'vocab.pickle')
 

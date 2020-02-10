@@ -1,11 +1,13 @@
 #!/usr/bin/env python
 
 import tkinter as tk
+import json
 
 from core.model import load_model
 from core.bot import do_answer
+from config import DATASET_FILE
 
-def run_window():
+def run_window(dataset = []):
     model, (words, labels, training, output) = load_model()
 
     main_window = tk.Tk(screenName='MainScreen')
@@ -38,7 +40,7 @@ def run_window():
     def btn_1_click():
         if entry_1_text.get() != '':
             sentence = entry_1_text.get()
-            answ = do_answer(sentence)
+            answ = do_answer(sentence, dataset=dataset)
 
             list_box.insert(tk.END, 'Aku: {}'.format(sentence))
             list_box.insert(tk.END, 'Bot: {}'.format(answ))
@@ -51,4 +53,9 @@ def run_window():
     main_window.mainloop()
 
 if __name__ == '__main__':
-    run_window()
+    dataset = {}
+
+    with open(DATASET_FILE) as file:
+        dataset = json.load(file)
+
+    run_window(dataset=dataset['collections'])

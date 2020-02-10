@@ -1,9 +1,8 @@
-import json
 import textdistance
 import pandas as pd
 import numpy as np
 import random as rd
-from .model import stem_text, load_model, DATASET_FILE
+from .model import stem_text, load_model
 from .trainer import THRESHOLD_SIMILARITY
 
 '''
@@ -74,7 +73,7 @@ def test_classify(sentence):
 '''
 do_answer
 '''
-def do_answer(sentence):
+def do_answer(sentence, dataset = []):
     model, (words, labels, training_data, output) = load_model()
 
     (bags, pred_word, r) = get_bag_of_words(sentence, words)
@@ -87,12 +86,8 @@ def do_answer(sentence):
     print(labels)
     print(tag)
 
-    dataset = {}
-    with open(DATASET_FILE) as file:
-        dataset = json.load(file)
-
     responses = []
-    for data in dataset["collections"]:
+    for data in dataset:
         if data['tag'] == tag:
             responses = data['responses']
     

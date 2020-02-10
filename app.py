@@ -8,6 +8,7 @@ import random as rd
 import pandas as pd
 import numpy as np
 from core.bot import do_answer
+from config import DATASET_FILE
 
 
 app = Flask(__name__)
@@ -16,6 +17,11 @@ app.config['BASIC_AUTH_USERNAME'] = 'app-client-1'
 app.config['BASIC_AUTH_PASSWORD'] = 'app-pass-1'
 
 basic_auth = BasicAuth(app)
+
+dataset = {}
+
+with open(DATASET_FILE) as file:
+	dataset = json.load(file)
 
 @app.route('/')
 def index():
@@ -50,7 +56,7 @@ def chat():
         response = jsonify({'message': 'sentence cannot be empty'})
         return response, 400
 
-    reply = do_answer(sentence)
+    reply = do_answer(sentence, dataset=dataset['collections'])
 
     response = jsonify({'reply': reply})
     return response

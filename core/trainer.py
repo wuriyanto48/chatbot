@@ -1,31 +1,25 @@
 import re
-import json
 import nltk
 import string
 import textdistance
 import numpy as np
 
 from .dnn import create_model, create_model_from_dnn
-from .model import DATASET_FILE, stem_text, load_base_words_bahasa, save_model
+from .model import stem_text, load_base_words_bahasa, save_model
 
 BATCH_SIZE = 5
 EPOCHS = 1000
 
 THRESHOLD_SIMILARITY = 0.63
 
-def preprocess_dataset():
+def preprocess_dataset(dataset = []):
 
     words = []
     labels = []
     docs_x = []
     docs_y = []
 
-    dataset = {}
-
-    with open(DATASET_FILE) as file:
-        dataset = json.load(file)
-
-    for intent in dataset['collections']:
+    for intent in dataset:
         for pattern in intent['patterns']:
 
             # case folding
@@ -59,9 +53,9 @@ def preprocess_dataset():
 '''
 train model
 '''
-def train():
+def train(dataset = []):
     
-    (words, labels, docs_x, docs_y) = preprocess_dataset()
+    (words, labels, docs_x, docs_y) = preprocess_dataset(dataset=dataset)
 
     # bag of words
     training_data = []
