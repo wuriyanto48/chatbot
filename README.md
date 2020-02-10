@@ -2,7 +2,14 @@
 
 Machine Learning Deep Neural Network Chatbot 
 
+Artificial Neural Network
+
 [<img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Colored_neural_network.svg" width="300">](https://github.com/wuriyanto48/chatbot)
+<br/><br/>
+
+Architecture of this Bot
+
+[<img src="./assets/architecture.png" width="500">](https://github.com/wuriyanto48/chatbot)
 <br/><br/>
 
 Requirements:
