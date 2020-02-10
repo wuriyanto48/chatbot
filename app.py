@@ -48,7 +48,7 @@ def chat():
     sentence = payload['sentence']
     if (sentence == ''):
         response = jsonify({'message': 'sentence cannot be empty'})
-        return response
+        return response, 400
 
     reply = do_answer(sentence)
 
