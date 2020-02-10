@@ -8,3 +8,5 @@ dataset_1.json
 *.h5
 tf.*
 *.pickle
+
+data/db
