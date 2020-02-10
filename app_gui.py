@@ -10,7 +10,7 @@ def run_window():
 
     main_window = tk.Tk(screenName='MainScreen')
     main_window.title('Chat with Bot')
-    main_window.geometry("800x600+300+300")
+    main_window.geometry("950x600+300+300")
 
     menu = tk.Menu(master=main_window)
     main_window.config(menu=menu, background='#75bdbd')
@@ -26,13 +26,13 @@ def run_window():
     label_1.grid(row=0)
 
     entry_1_text = tk.StringVar()
-    entry_1 = tk.Entry(master=main_window, width=50, textvariable=entry_1_text)
+    entry_1 = tk.Entry(master=main_window, width=80, textvariable=entry_1_text)
     entry_1.grid(row=0, column=1)
     
     scrollbar = tk.Scrollbar(master=main_window, orient='vertical')
     scrollbar.grid(row=3, column=2)
 
-    list_box = tk.Listbox(master=main_window, width=50, yscrollcommand = scrollbar.set)
+    list_box = tk.Listbox(master=main_window, width=80, yscrollcommand = scrollbar.set)
     list_box.grid(row=3, column=1)
 
     def btn_1_click():
