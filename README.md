@@ -46,13 +46,23 @@ $ pip install -r requirements.txt
 $ ./train_bot.py
 ```
 
-#### Run Bot as CLI App
+### Run App
+
+Thera are 3 interface for communicate with `Bot`
+
+CLI App
 
 ```shell
 $ ./cli_bot.py
 ```
 
-#### Run Bot as Microservice
+GUI App
+
+```shell
+$ ./app_gui.py
+```
+
+Restful API
 
 Run `Bot` first
 
