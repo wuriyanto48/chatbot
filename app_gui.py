@@ -5,6 +5,7 @@ import json
 
 from core.model import load_model
 from core.bot import do_answer
+from core.datastore.dataset import Dataset
 from config import DATASET_FILE
 
 def run_window(dataset = []):
@@ -53,9 +54,21 @@ def run_window(dataset = []):
     main_window.mainloop()
 
 if __name__ == '__main__':
-    dataset = {}
+    # dataset = {}
 
-    with open(DATASET_FILE) as file:
-        dataset = json.load(file)
+    # with open(DATASET_FILE) as file:
+    #     dataset = json.load(file)
 
-    run_window(dataset=dataset['collections'])
+    host = 'localhost'
+    port = 27017
+    username = 'bot'
+    password = 'bot'
+    database = 'bot_dataset'
+
+    datastore = Dataset(host=host, port=port, username=username, password=password, database=database)
+
+    dataset = datastore.find_all()
+
+    run_window(dataset=dataset)
+
+    datastore.close()
