@@ -23,8 +23,6 @@ class Dataset(object):
         self.db = self.client[kwargs['database']]
 
         self.dataset_collection = self.db['dataset']
-        x = self.dataset_collection.delete_one({})
-        x.deleted_count
     
     def insert_one(self, data = {}):
       inserted = self.dataset_collection.insert_one(data)
