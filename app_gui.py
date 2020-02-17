@@ -54,21 +54,21 @@ def run_window(dataset = []):
     main_window.mainloop()
 
 if __name__ == '__main__':
-    # dataset = {}
+    dataset = {}
 
-    # with open(DATASET_FILE) as file:
-    #     dataset = json.load(file)
+    with open(DATASET_FILE) as file:
+        dataset = json.load(file)
 
-    host = 'localhost'
-    port = 27017
-    username = 'bot'
-    password = 'bot'
-    database = 'bot_dataset'
+    # host = 'localhost'
+    # port = 27017
+    # username = 'bot'
+    # password = 'bot'
+    # database = 'bot_dataset'
 
-    datastore = Dataset(host=host, port=port, username=username, password=password, database=database)
+    # datastore = Dataset(host=host, port=port, username=username, password=password, database=database)
 
-    dataset = datastore.find_all()
+    # dataset = datastore.find_all()
 
-    run_window(dataset=dataset)
+    run_window(dataset=dataset['collections'])
 
     datastore.close()
