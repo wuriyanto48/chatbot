@@ -191,6 +191,20 @@
         ]
       },
       {
+        "tag": "identitas",
+        "patterns": [
+          "kamu siapa",
+          "siapa kamu",
+          "siapa dirimu",
+          "saya tau kamu",
+          "siapa anda",
+          "saya tau anda"
+        ],
+        "responses": [
+          "Saya hanya Robot"
+        ]
+      },
+      {
         "tag": "tidakdiketahui",
         "patterns": [
           ""
